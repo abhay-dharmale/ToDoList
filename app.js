@@ -5,6 +5,7 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 // const date = require(__dirname + "/date.js");
 const _ = require("lodash");
+require('dotenv').config();
 
 const app = express();
 
@@ -13,7 +14,7 @@ app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
-mongoose.connect("mongodb+srv://abhaydharmale:Mjolnir_mongoose@cluster0.s0bxcrh.mongodb.net/todolistDB");
+mongoose.connect(process.env.MONGO_DB);
 
 
 
